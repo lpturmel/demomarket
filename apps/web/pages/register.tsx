@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { doRegister } from "../lib/register";
 import { useRouter } from "next/router";
+import Seo from "../components/Seo";
 export { getServerSideProps } from "../utils/page";
 
 const Register: NextPage = () => {
@@ -35,6 +36,7 @@ const Register: NextPage = () => {
     }, [email, name, password]);
     return (
         <div className="container max-w-lg m-auto w-full flex flex-col gap-8">
+            <Seo title="Register" />
             <h1 className="text-2xl font-bold">Register</h1>
             <form
                 onSubmit={onSubmit}

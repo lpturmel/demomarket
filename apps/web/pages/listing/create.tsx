@@ -2,6 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
+import Seo from "../../components/Seo";
 import { doCreateListing } from "../../lib/listing";
 export { getServerSideProps } from "../../utils/page";
 
@@ -31,6 +32,7 @@ const CreateListing: NextPage = () => {
     };
     return (
         <div className="container max-w-lg m-auto">
+            <Seo title="New listing" />
             <form className="form-control" onSubmit={onSubmit}>
                 <div className="w-full flex flex-col gap-4">
                     <p className="text-2xl font-bold"> New Listing </p>

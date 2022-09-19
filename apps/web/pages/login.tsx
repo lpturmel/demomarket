@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { doLogin } from "../lib/login";
 import { useRouter } from "next/router";
+import Seo from "../components/Seo";
 export { getServerSideProps } from "../utils/page";
 
 const Login: NextPage = () => {
@@ -33,6 +34,7 @@ const Login: NextPage = () => {
     }, [email, password]);
     return (
         <div className="container max-w-lg m-auto w-full flex flex-col gap-8">
+            <Seo title="Login" />
             <h1 className="text-2xl font-bold">Login</h1>
             <form
                 onSubmit={onSubmit}

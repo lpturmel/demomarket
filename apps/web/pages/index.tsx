@@ -4,6 +4,8 @@ import { Suspense } from "react";
 import { User } from "../lib/db/user";
 import ListingItem from "../components/ListingItem";
 import { ListingResponse } from "./api/listings";
+import Head from "next/head";
+import Seo from "../components/Seo";
 export { getServerSideProps } from "../utils/page";
 
 interface PageProps {
@@ -20,6 +22,7 @@ const Home: NextPage<PageProps> = (props) => {
     });
     return (
         <div className="m-auto container max-w-xl flex flex-col gap-8">
+            <Seo title="Listings" />
             <div className="flex w-full items-center justify-between">
                 <p className="text-3xl font-bold">Market</p>
                 {props.user && (
