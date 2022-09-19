@@ -1,10 +1,39 @@
-import { Button } from "ui";
+import { useQuery } from "@tanstack/react-query";
+import type { NextPage } from "next";
+import { User } from "../api/db/user";
+import ListingItem from "../components/ListingItem";
+import { ListingResponse } from "./api/listings";
+export { getServerSideProps } from "../utils/page";
 
-export default function Web() {
-  return (
-    <div>
-      <h1>Web</h1>
-      <Button />
-    </div>
-  );
+interface PageProps {
+    user?: User;
 }
+const Home: NextPage<PageProps> = (props) => {
+    const { data } = useQuery<ListingResponse[]>(["listings"], async () => {
+        const res = await fetch("/api/listings");
+        const data = await res.json();
+        if (res.status !== 200) {
+            throw new Error(data.name);
+        }
+        return data;
+    });
+    return (
+        <div className="m-auto container max-w-xl flex flex-col gap-8">
+            <div className="flex w-full items-center justify-between">
+                <p className="text-3xl font-bold">Market</p>
+                {props.user && (
+                    <a className="btn" href="/listing/create">
+                        Create Listing
+                    </a>
+                )}
+            </div>
+            <div className="flex flex-col gap-4">
+                {data?.map((listing) => (
+                    <ListingItem key={listing.id} listing={listing} />
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default Home;
