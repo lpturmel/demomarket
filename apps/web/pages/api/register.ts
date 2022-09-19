@@ -4,9 +4,6 @@ import { SignJWT } from "jose";
 import { v4 as uuid } from "uuid";
 import { createUser } from "../../api/db/user";
 
-export const config = {
-    runtime: "experimental-edge",
-};
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse

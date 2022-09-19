@@ -3,9 +3,6 @@ import { compare } from "bcrypt";
 import { SignJWT } from "jose";
 import { getUserByEmail } from "../../api/db/user";
 
-export const config = {
-    runtime: "experimental-edge",
-};
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
