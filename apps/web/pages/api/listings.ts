@@ -1,6 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getListings } from "../../api/db/listing";
 
+export const config = {
+    runtime: "experimental-edge",
+};
 export interface ListingResponse {
     id: string;
     title: string;

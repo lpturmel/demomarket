@@ -3,6 +3,9 @@ import { v4 as uuid } from "uuid";
 import { createListing } from "../../api/db/listing";
 import { jwtVerify } from "jose";
 
+export const config = {
+    runtime: "experimental-edge",
+};
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
