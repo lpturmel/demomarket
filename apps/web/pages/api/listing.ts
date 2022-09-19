@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { v4 as uuid } from "uuid";
-import { createListing } from "../../api/db/listing";
+import { createListing } from "../../lib/db/listing";
 import { jwtVerify } from "jose";
 
 export const config = {

@@ -1,6 +1,6 @@
 import { jwtVerify } from "jose";
 import { GetServerSideProps } from "next";
-import { getUser } from "../api/db/user";
+import { getUser } from "../lib/db/user";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const now = performance.now();

@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import { useMemo, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { doLogin } from "../api/login";
+import { doLogin } from "../lib/login";
 import { useRouter } from "next/router";
 export { getServerSideProps } from "../utils/page";
 

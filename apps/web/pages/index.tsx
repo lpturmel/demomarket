@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import type { NextPage } from "next";
 import { Suspense } from "react";
-import { User } from "../api/db/user";
+import { User } from "../lib/db/user";
 import ListingItem from "../components/ListingItem";
 import { ListingResponse } from "./api/listings";
 export { getServerSideProps } from "../utils/page";

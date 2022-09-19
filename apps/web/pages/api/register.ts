@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { hash } from "bcrypt";
 import { SignJWT } from "jose";
 import { v4 as uuid } from "uuid";
-import { createUser } from "../../api/db/user";
+import { createUser } from "../../lib/db/user";
 
 export default async function handler(
     req: NextApiRequest,

@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
-import { doCreateListing } from "../../api/listing";
+import { doCreateListing } from "../../lib/listing";
 export { getServerSideProps } from "../../utils/page";
 
 const CreateListing: NextPage = () => {

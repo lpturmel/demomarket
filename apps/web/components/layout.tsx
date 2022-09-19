@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { FunctionComponent, ReactNode } from "react";
-import { User } from "../api/db/user";
-import { doLogout } from "../api/logout";
+import { User } from "../lib/db/user";
+import { doLogout } from "../lib/logout";
 
 interface LayoutProps {
     children: ReactNode;

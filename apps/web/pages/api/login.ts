@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { compare } from "bcrypt";
 import { SignJWT } from "jose";
-import { getUserByEmail } from "../../api/db/user";
+import { getUserByEmail } from "../../lib/db/user";
 
 export default async function handler(
     req: NextApiRequest,

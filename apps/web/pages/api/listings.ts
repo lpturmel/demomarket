@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getListings } from "../../api/db/listing";
+import { getListings } from "../../lib/db/listing";
 
 export const config = {
     runtime: "experimental-edge",
