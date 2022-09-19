@@ -1,4 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 import { FunctionComponent, ReactNode } from "react";
 import { User } from "../api/db/user";
 import { doLogout } from "../api/logout";
@@ -8,10 +9,12 @@ interface LayoutProps {
     user: User;
 }
 const Layout: FunctionComponent<LayoutProps> = ({ children, user }) => {
+    const router = useRouter();
     const logout = useMutation(doLogout);
 
     const onLogout = async () => {
         logout.mutate();
+        router.reload();
     };
     return (
         <div className="flex flex-col w-full h-full">

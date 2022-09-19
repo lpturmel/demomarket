@@ -34,31 +34,40 @@ const Register: NextPage = () => {
         return !email || !name || !password;
     }, [email, name, password]);
     return (
-        <div>
-            <h1>Register</h1>
-            <form onSubmit={onSubmit}>
-                <label>Email</label>
+        <div className="container max-w-lg m-auto w-full flex flex-col gap-8">
+            <h1 className="text-2xl font-bold">Register</h1>
+            <form
+                onSubmit={onSubmit}
+                className="bg-base-200 p-4 rounded-lg form-control w-full flex flex-col gap-4"
+            >
+                <label className="label">
+                    <span className="label-text">Email</span>
+                </label>
                 <input
+                    className="input input-bordered w-full"
                     type="email"
-                    placeholder="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.currentTarget.value)}
                     required
                 />
-                <label> Name </label>
+                <label className="label">
+                    <span className="label-text">Name</span>
+                </label>
                 <input
                     type="text"
-                    placeholder="name"
+                    className="input input-bordered w-full"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
                 />
-                <label> Password </label>
+                <label className="label">
+                    <span className="label-text">Password</span>
+                </label>
                 <input
+                    className="input input-bordered w-full"
                     type="password"
-                    placeholder="password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.currentTarget.value)}
                     required
                 />
                 {error && (
@@ -81,11 +90,14 @@ const Register: NextPage = () => {
                         </div>
                     </div>
                 )}
-                <button disabled={disabled} type="submit">
-                    Register
+                <button className="btn" disabled={disabled} type="submit">
+                    Login
                 </button>
-                <span>
-                    Already have an account? <a href="/login">Login</a>
+                <span className="w-full text-center text-sm">
+                    Already have an account?
+                    <a className="link-primary ml-2" href="/login">
+                        Login
+                    </a>
                 </span>
             </form>
         </div>

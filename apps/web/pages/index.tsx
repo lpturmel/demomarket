@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import type { NextPage } from "next";
+import { Suspense } from "react";
 import { User } from "../api/db/user";
 import ListingItem from "../components/ListingItem";
 import { ListingResponse } from "./api/listings";
@@ -28,9 +29,13 @@ const Home: NextPage<PageProps> = (props) => {
                 )}
             </div>
             <div className="flex flex-col gap-4">
-                {data?.map((listing) => (
-                    <ListingItem key={listing.id} listing={listing} />
-                ))}
+                <Suspense
+                    fallback={<div className="animate-pulse">Loading...</div>}
+                >
+                    {data?.map((listing) => (
+                        <ListingItem key={listing.id} listing={listing} />
+                    ))}
+                </Suspense>
             </div>
         </div>
     );
